@@ -1,5 +1,5 @@
 # Site settings
-baseURL = "https://azmisite27.netlify.app/"
+baseURL = "https://azmisite10.netlify.app/"
 languageCode = "en-us"
 title = "Azmi's Portfolio Website"
 theme = "forty"
@@ -92,8 +92,8 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Aliquam"
-      subtitle = "Ipsum Dolor Sit Amet"
+      title = "Stocks"
+      subtitle = "Check out some stocks"
       image = "pic01.jpg"
       url = "blogs/aliquam"
 
