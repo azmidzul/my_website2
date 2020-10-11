@@ -44,12 +44,13 @@ disqusShortname = ""
     # logo = "logo.png"
 
     [[params.navigation.links]]
-      name = "Home"
-      url = "#"
+      name = "Stocks"
+      url = "projects/project1"
 
     [[params.navigation.links]]
-      name = "Projects"
-      url = "projects"
+      name = "Project 2"
+      url = "#"
+      
 
     #[[params.navigation.links]]
      # name = "Generic Blog"
@@ -68,8 +69,8 @@ disqusShortname = ""
 
     # Button Style 1
     [[params.navigation.button1]]
-      name = "Get Started"
-      url = "blogs"
+      name = "Home"
+      url = "#"
 
     # Button Style 2
     [[params.navigation.button2]]
