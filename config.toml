@@ -93,8 +93,8 @@ disqusShortname = ""
     
     [[params.tiles.showcase]]
       title = "Stocks"
-      subtitle = "Check out some stocks"
-      image = "pic01.jpg"
+      subtitle = "Wondering about returns?"
+      image = "stocks.jpg"
       url = "projects/project1"
 
     [[params.tiles.showcase]]

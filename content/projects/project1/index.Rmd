@@ -1,5 +1,5 @@
 ---
-title: "Project 1 Stocks"
+title: "Project 1: Lets play around with some Stocks!"
 author: "Azmi Dzulkarnain"
 date: "`r Sys.Date()`"
 output:
@@ -50,41 +50,35 @@ library(lubridate) #to handle dates
 
 
 
-# Returns of financial stocks
-
-
-> You may find useful the material on [finance data sources](https://mfa2021.netlify.app/reference/finance_data/). 
-
-We will use the `tidyquant` package to download historical data of stock prices, calculate returns, and examine the distribution of returns. 
-
-We must first identify which stocks we want to download data for, and for this we must know their ticker symbol; Apple is known as AAPL, Microsoft as MSFT, McDonald's as MCD, etc. The file `nyse.csv` contains 508 stocks listed on the NYSE, their ticker `symbol`, `name`, the IPO  (Initial Public Offering) year, and the sector and industry the company is in.
-
+## Lets take a look at the NYSE
 
 ```{r load_nyse_data, message=FALSE, warning=FALSE}
+#Downloading the data we need
 nyse <- read_csv(here::here("data","nyse.csv"))
 ```
 
-Based on this dataset, create a table and a bar plot that shows the number of companies per sector, in descending order
+### Lets see how the NYSE is made up
 
 ```{r companies_per_sector}
+#Grouping the companies in the NYSE by sector
 companies_per_sector <- nyse %>% 
   group_by(sector) %>%
   summarise(count=count(sector)) %>% 
   arrange(desc(count))
 
+#Lets see what it looks like in a bar graph
 bar <- companies_per_sector %>% 
   ggplot(aes(y=reorder(sector,count),x=count))+
          geom_col()+
-  labs(y="Sector", x="# of Companies",title="Number of Companies per Sector")
+  labs(y="",x="# of Companies",title="Companies in the NYSE")+
+  theme_economist_white()
 
-companies_per_sector
 bar
 
 
 ```
 
-Next, let's choose the [Dow Jones Industrial Aveareg (DJIA)](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average) stocks and their ticker symbols and download some data. Besides the thirty stocks that make up the DJIA, we will also add `SPY` which is an SP500 ETF (Exchange Traded Fund).
-
+## Now lets look at the [Dow Jones Industrial Aveareg (DJIA)](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average)
 
 ```{r, tickers_from_wikipedia}
 
@@ -126,7 +120,7 @@ tickers <- table1 %>%
 ```
 
 
-
+### Now that we have the DJIA data, lets narrow down our dates to the 2000s
 
 ```{r get_price_data, message=FALSE, warning=FALSE, cache=TRUE}
 # Notice the cache=TRUE argument in the chunk options. Because getting data is time consuming, # cache=TRUE means that once it downloads data, the chunk will not run again next time you knit your Rmd
@@ -137,10 +131,10 @@ myStocks <- tickers %>%
          to   = "2020-08-31") %>%
   group_by(symbol) 
 
-glimpse(myStocks) # examine the structure of the resulting data frame
+#glimpse(myStocks) # examine the structure of the resulting data frame
 ```
 
-Financial performance analysis depend on returns; If I buy a stock today for 100 and I sell it tomorrow for 101.75, my one-day return, assuming no transaction costs, is 1.75%. So given the adjusted closing prices, our first step is to calculate daily and monthly returns.
+Financial performance analysis depend on returns; If I buy a stock today for 100 and I sell it tomorrow for 101.75, my one-day return, assuming no transaction costs, is 1.75%. So given the adjusted closing prices, lets firs calculate daily and monthly returns.
 
 
 ```{r calculate_returns, message=FALSE, warning=FALSE, cache=TRUE}
@@ -173,7 +167,7 @@ myStocks_returns_annual <- myStocks %>%
                cols = c(nested.col))
 ```
 
-Create a dataframe and assign it to a new object, where you summarise monthly returns since 2017-01-01 for each of the stocks and `SPY`; min, max, median, mean, SD.
+### Summarise monthly returns since 2017-01-01 for each of the stocks and `SPY`; min, max, median, mean, SD.
 
 ```{r summarise_monthly_returns}
 
@@ -185,42 +179,32 @@ summarise_monthly_returns
 
 ```
 
+### Density plot
 
-Plot a density plot, using `geom_density()`, for each of the stocks
 ```{r density_monthly_returns}
 
 density_monthly_returns <- myStocks_returns_monthly %>% 
   ggplot(aes(x=monthly_returns))+
   geom_density() + 
-  facet_wrap(~symbol)
+  facet_wrap(~symbol)+
+  theme_economist_white()+
+  labs(x="Monthly Returns", y="", title="Components of the DJIA")
 
 density_monthly_returns
 ```
 
-** What can you infer from this plot? Which stock is the riskiest? The least risky? **
 
-DOW
-SPY
-
-
-> TYPE YOUR ANSWER AFTER (AND OUTSIDE!) THIS BLOCKQUOTE.
-
-Finally, produce a plot that shows the expected monthly return (mean) of a stock on the Y axis and the risk (standard deviation) in the X-axis. Please use `ggrepel::geom_text_repel()` to label each stock with its ticker symbol
+### Finally, lets look at Risk Vs Return
 
 ```{r risk_return_plot}
 risk_return_plot <- summarise_monthly_returns %>%
   ggplot(aes(x=SD,y=mean))+
   ggrepel::geom_text_repel(aes(label = symbol))+
-  labs(x="Risk", y= "Expected Monthly Return")
+  labs(x="Risk", y= "Expected Monthly Return",title="Which would you pick?")+
+  theme_economist_white()
 
 risk_return_plot
   
 
 ```
-
-** What can you infer from this plot? Are there any stocks which, while being riskier, do not have a higher expected return? **
-
-> TYPE YOUR ANSWER AFTER (AND OUTSIDE!) THIS BLOCKQUOTE.
-
-
 
