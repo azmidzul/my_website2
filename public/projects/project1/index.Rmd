@@ -10,8 +10,10 @@ output:
     toc: yes
     toc_float: yes
     code_folding: show
+    
 ---
 
+[](stock_market.jpg)
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
