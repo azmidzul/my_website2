@@ -48,8 +48,8 @@ disqusShortname = ""
       url = "projects/project1"
 
     [[params.navigation.links]]
-      name = "Project 2"
-      url = "#"
+      name = "US Treasury Bills"
+      url = "projects/project2"
       
 
     #[[params.navigation.links]]
@@ -99,10 +99,10 @@ disqusShortname = ""
       url = "projects/project1"
 
     [[params.tiles.showcase]]
-      title = "Tempus"
-      subtitle = "Feugiat Amet Tempus"
-      image = "pic02.jpg"
-      url = "blogs/tempus"
+      title = "US Treasury Bills"
+      subtitle = "How fixed is your income?"
+      image = "dollar.jpg"
+      url = "projects/project2"
 
     [[params.tiles.showcase]]
       title = "Magna"
