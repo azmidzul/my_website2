@@ -1,0 +1,169 @@
+---
+title: "Session 4: Homework 2"
+author: "Study Group 27: Azmi Dzulkarnain, Beatriz Vala, Nona Velez, Andrea Gerards, Guillaume Borigite, Kris Wu"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
+---
+
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r load-libraries, include=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(here)
+library(skimr)
+library(janitor)
+library(httr)
+library(readxl)
+library(vroom)
+```
+
+
+
+# Challenge 1: CDC COVID-19 Public Use Data
+
+Let us revisit the [CDC Covid-19 Case Surveillance Data](https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data/vbim-akqf). 
+
+
+```{r, cache=TRUE}
+# file contains 11 variables and 3.66m rows and is well over 380Mb. 
+# It will take time to download
+
+# URL link to CDC to download data
+url <- "https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD"
+
+covid_data <- vroom::vroom(url)%>% # If vroom::vroom(url) doesn't work, use read_csv(url)
+  clean_names()
+
+
+```
+
+Given the data we have, I would like you to produce two graphs that show death % rate:
+
+1. by age group, sex, and whether the patient had co-morbidities or not
+1. by age group, sex, and whether the patient was admited to Intensive Care Unit (ICU) or not.
+
+```{r,,,fig.width=12}
+# Filter and summarize count, for grouped data, with death criteria
+grouped_med_death <- covid_data %>%
+  filter(medcond_yn %in% c("Yes", "No"),        # Get rid of "Unknown" or "Missing" medcond_yn
+         death_yn %in% c("Yes", "No"),          # Get rid of "Missing" death_yn
+         death_yn != "Unknown",                 # Get rid of "Unknown" death_yn
+         sex %in% c("Male", "Female"),          # Get rid of sex other than "Male" and "Female"
+         age_group != "Unknown") %>%            # Get rid of age_group "Unknown"
+  group_by(age_group, sex, medcond_yn, death_yn) %>%           # Group, with "Yes" or "No" as separate categories for death_yn
+  summarise(N=n())                              # Obtain count for combinations of categories
+
+# Filter and summarize count, for grouped data, without death criteria
+grouped_med <- covid_data %>%
+  filter(medcond_yn %in% c("Yes", "No"),
+         death_yn %in% c("Yes", "No"),
+         death_yn != "Unknown",
+         sex %in% c("Male", "Female"),
+         age_group != "Unknown") %>%
+  group_by(age_group, sex, medcond_yn) %>%                     # Group, regardless of "Yes" or "No" for death_yn
+  summarise(TN=n())
+
+# Join categorical count and total count, calculate death rate
+plot_comorbidities <- grouped_med_death %>%
+  left_join(grouped_med, by = c("age_group", "sex", "medcond_yn")) %>%         # Present total count next to sub-count
+  mutate(death_rate = N / TN * 100,                                                    # Create new column of calculated percentage of total
+         medcond_yn = factor(medcond_yn,                                               # Factorize and rename medcond_yn feature
+                             levels = c("Yes", "No"),
+                             labels = c("With comorbidities",
+                                        "Without comorbidities"))) %>%
+  filter(death_yn == "Yes")      # Only use death_rate (not non-death rate) before plotting
+
+# Plot
+ggplot(plot_comorbidities, aes(x = age_group, y = death_rate)) +               # Specify data and axes
+  geom_col(fill = "#365383") +                                                    # Specify chart style (bar) and fill color
+  geom_text(mapping = aes(y = death_rate + 3, label = round(death_rate,1)), size = 4) +  # Specify data labels and their positions
+  coord_flip() +                                                               # Flip axis
+  facet_grid(medcond_yn ~ sex) +                                               # Create a grid format (vertical ~ horizontal)
+  labs(x="", 
+       y = "", 
+       title = "Covid death % by age group, sex and presence of co-morbidities") +
+  scale_y_continuous(breaks = seq(0, 60, 20),
+                     labels = paste(seq(0, 60, 20), "%")) +
+  theme_bw()
+
+#################################################################
+
+# Filter and summarize count, for grouped data, with death criteria
+grouped_icu_death <- covid_data %>%
+  filter(icu_yn %in% c("Yes", "No"),
+         death_yn %in% c("Yes", "No"),
+         sex %in% c("Male", "Female"),
+         age_group != "Unknown") %>%
+  group_by(age_group, sex, icu_yn, death_yn) %>%
+  summarise(N=n())
+
+# Filter and summarize count, for grouped data, without death criteria
+grouped_icu <- covid_data %>%
+  filter(icu_yn %in% c("Yes", "No"),
+         death_yn %in% c("Yes", "No"),
+         sex %in% c("Male", "Female"),
+         age_group != "Unknown") %>%
+  group_by(age_group, sex, icu_yn) %>%
+  summarise(TN=n())
+
+# Join categorical count and total count, calculate death rate
+plot_icu <- grouped_icu_death %>%
+  left_join(grouped_icu, by = c("age_group", "sex", "icu_yn")) %>%
+  mutate(death_rate = N / TN * 100,
+         icu_yn = factor(icu_yn, 
+                         levels = c("Yes", "No"),
+                         labels = c("Admited to ICU",
+                                    "No ICU"))) %>%
+  filter(death_yn == "Yes")
+
+# Plot
+ggplot(plot_icu, aes(x = age_group, y = death_rate)) +
+  geom_col(fill = "#fc9272") +
+  geom_text(mapping = aes(y = death_rate + 3, label = round(death_rate,1)), size = 4) +
+  coord_flip() +
+  facet_grid(icu_yn ~ sex) +
+  labs(x="", 
+       y = "", 
+       title = "Covid death % by age group, sex and whether patient was admited to ICU") +
+  scale_y_continuous(breaks = seq(0, 60, 20),
+                     labels = paste(seq(0, 60, 20), "%")) +
+  theme_bw()
+
+
+
+  
+```
+```{r covid_challenge, echo=FALSE, out.width="100%"}
+knitr::include_graphics(here::here("images", "covid_death_rate_comorbidities.png"), error = FALSE)
+knitr::include_graphics(here::here("images", "covid_death_rate_icu.png"), error = FALSE)
+```
+
+
+Besides the graphs, make sure your code is easy to read and understand-- imagine if you revisit this six months from now. you should be able to follow what you were doing!
+
