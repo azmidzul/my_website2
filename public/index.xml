@@ -6,7 +6,16 @@
     <description>Recent content on Azmi&#39;s Portfolio Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project 1: Lets play around with some Stocks!</title>
+      <link>/projects/project1/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project1/</guid>
+      <description>Lets take a look at the NYSE #Downloading the data we need nyse &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;nyse.csv&amp;quot;)) Lets see how the NYSE is made up #Grouping the companies in the NYSE by sector companies_per_sector &amp;lt;- nyse %&amp;gt;% group_by(sector) %&amp;gt;% summarise(count=count(sector)) %&amp;gt;% arrange(desc(count)) #Lets see what it looks like in a bar graph bar &amp;lt;- companies_per_sector %&amp;gt;% ggplot(aes(y=reorder(sector,count),x=count))+ geom_col()+ labs(y=&amp;quot;&amp;quot;,x=&amp;quot;# of Companies&amp;quot;,title=&amp;quot;Companies in the NYSE&amp;quot;)+ theme_economist_white() bar   Now lets look at the Dow Jones Industrial Aveareg (DJIA) djia_url &amp;lt;- &amp;quot;https://en.</description>
+    </item>
+    
     <item>
       <title>Session 4: Homework 2</title>
       <link>/projects/project3/</link>
@@ -25,15 +34,6 @@ To define temperature anomalies you need to have a reference, or base, period wh
       <guid>/projects/project2/</guid>
       <description>Challenge 1: Yield Curve inversion Every so often, we hear warnings from commentators on the “inverted yield curve” and its predictive power with respect to recessions. An explainer what a inverted yield curve is can be found here. If you’d rather listen to something, here is a great podcast from NPR on yield curve indicators
 In addition, many articles and commentators think that, e.g., Yield curve inversion is viewed as a harbinger of recession.</description>
-    </item>
-    
-    <item>
-      <title>Project 1: Lets play around with some Stocks!</title>
-      <link>/projects/project1/</link>
-      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project1/</guid>
-      <description>Lets take a look at the NYSE #Downloading the data we need nyse &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;nyse.csv&amp;quot;)) Lets see how the NYSE is made up #Grouping the companies in the NYSE by sector companies_per_sector &amp;lt;- nyse %&amp;gt;% group_by(sector) %&amp;gt;% summarise(count=count(sector)) %&amp;gt;% arrange(desc(count)) #Lets see what it looks like in a bar graph bar &amp;lt;- companies_per_sector %&amp;gt;% ggplot(aes(y=reorder(sector,count),x=count))+ geom_col()+ labs(y=&amp;quot;&amp;quot;,x=&amp;quot;# of Companies&amp;quot;,title=&amp;quot;Companies in the NYSE&amp;quot;)+ theme_economist_white() bar   Now lets look at the Dow Jones Industrial Aveareg (DJIA) djia_url &amp;lt;- &amp;quot;https://en.</description>
     </item>
     
     <item>

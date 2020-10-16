@@ -13,7 +13,9 @@ output:
     
 ---
 
-[](stock_market.jpg)
+```{r add_my_new_picture, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/projects/stock_market.jpg", error = FALSE)
+```
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(

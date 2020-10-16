@@ -13,7 +13,9 @@ output:
     
 ---
 
-[](stock_market.jpg)
+```{r add_my_new_picture, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/projects/stock_market.jpg", error = FALSE)
+```
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
@@ -46,6 +48,7 @@ library(tidyquant)
 library(rvest)    # scrape websites
 library(purrr)  
 library(lubridate) #to handle dates
+library(kableExtra)
 ```
 
 
@@ -174,7 +177,9 @@ myStocks_returns_annual <- myStocks %>%
 ```{r summarise_monthly_returns}
 
 summarise_monthly_returns <- myStocks_returns_monthly %>% 
-  summarise(min=min(monthly_returns),max=max(monthly_returns),median=median(monthly_returns),mean = mean(monthly_returns),SD=sd(monthly_returns))
+  summarise(min=min(monthly_returns),max=max(monthly_returns),median=median(monthly_returns),mean = mean(monthly_returns),SD=sd(monthly_returns)) %>% 
+  kable() %>% 
+  kable_styling(fixed_thead = T)
 
 summarise_monthly_returns
   
