@@ -1,5 +1,5 @@
 ---
-title: 'Pre-programme Assignment 1'
+title: ''
 author: " Azmi Dzulkarnain"
 date: " 4th September 2020"
 output:
@@ -20,17 +20,6 @@ library(here)
 ```
 
 
-
-> Please delete all the intro text I wrote from line 22 to line 69 and start writing your short biography after this blockquote.
-
-# Task 1: Short biography written using markdown
-
-Hi professor. I look forward to meeting you. My name is Azmi and this is my short Biography as requested. The Biography will be divided into 3 main sections:
-
-1. **Before University**
-2. **During University**
-3. **After University**
-
 ### **Before University**
 ```{r add_my_new_picture, echo=FALSE, out.width="90%"}
 knitr::include_graphics("/img/projects/image001.jpg", error = FALSE)
@@ -42,7 +31,7 @@ I was born and raised in Singapore where I spent the first twenty years of my li
 
 After my time as a policeman, I traveled halfway across the world to Boston, Massachusetts, USA where I attended Northeastern University. Other than having to get used to living outside of my home country for the first time in my life, I also quickly had to get adjusted to the weather in Boston. While Singapore has a tropical climate due to its location near the equator, Boston felt the full brunt of the four seasons. In fact, my first winter in Boston turned out to be the [snowiest winter in Boston](https://weather.com/news/news/new-england-boston-record-snow-tracker) where a total of 110.6 inches of snow fell during the season. Below is a picture taken of a friend and I after one of the many snowstorms during the season.  
 
-```{r add_my_new_picture, echo=FALSE, out.width="90%"}
+```{r add_my_new_picture2, echo=FALSE, out.width="90%"}
 knitr::include_graphics("/img/projects/IMG_0555.JPG", error = FALSE)
 ```
 
