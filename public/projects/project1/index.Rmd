@@ -48,6 +48,7 @@ library(tidyquant)
 library(rvest)    # scrape websites
 library(purrr)  
 library(lubridate) #to handle dates
+library(kableExtra)
 ```
 
 
@@ -178,7 +179,13 @@ myStocks_returns_annual <- myStocks %>%
 summarise_monthly_returns <- myStocks_returns_monthly %>% 
   summarise(min=min(monthly_returns),max=max(monthly_returns),median=median(monthly_returns),mean = mean(monthly_returns),SD=sd(monthly_returns))
 
-summarise_monthly_returns
+
+  kable(summarise_monthly_returns) %>% 
+  kable_minimal()  
+    
+
+
+
   
 
 ```
