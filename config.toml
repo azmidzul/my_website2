@@ -83,8 +83,9 @@ disqusShortname = ""
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
     title = "Hi, Welcome to my Site"
-    subtitle = "Greetings! Welcome to my portfolio site. Hope you enjoy what you see"
+    subtitle = "Greetings! Welcome to my portfolio site. This is a collection on some of the projects I have done in London Business School. Hope you enjoy!"
     buttonText = "Get Started"
+    
 
 
   # Tiles Section
@@ -92,6 +93,12 @@ disqusShortname = ""
     enable = true
     # Display your showcases here.
     
+    [[params.tiles.showcase]]
+      title = "About Me"
+      subtitle = "Who am I?"
+      image = "pic05.jpg"
+      url = "projects/project5"
+      
     [[params.tiles.showcase]]
       title = "Stocks"
       subtitle = "Wondering about returns?"
@@ -116,11 +123,7 @@ disqusShortname = ""
       image = "pic04.jpg"
       url = "projects/project4"
 
-    [[params.tiles.showcase]]
-      title = "About Me"
-      subtitle = "Wondering About me?"
-      image = "pic05.jpg"
-      url = "projects/project5"
+  
 
     #[[params.tiles.showcase]]
      # title = "Etiam"

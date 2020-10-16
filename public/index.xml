@@ -93,5 +93,16 @@ You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     
+    <item>
+      <title>Pre-programme Assignment 1</title>
+      <link>/projects/project5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project5/</guid>
+      <description>Please delete all the intro text I wrote from line 22 to line 69 and start writing your short biography after this blockquote.
+ Task 1: Short biography written using markdown Hi professor. I look forward to meeting you. My name is Azmi and this is my short Biography as requested. The Biography will be divided into 3 main sections:
+Before University During University After University  Before University Marina Bay, Singapore</description>
+    </item>
+    
   </channel>
 </rss>
