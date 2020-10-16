@@ -181,6 +181,7 @@ summarise_monthly_returns <- myStocks_returns_monthly %>%
   kable() %>% 
   kable_styling(fixed_thead = T)
 
+
 summarise_monthly_returns
   
 
