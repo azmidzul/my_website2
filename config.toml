@@ -44,21 +44,25 @@ disqusShortname = ""
     # logo = "logo.png"
 
     [[params.navigation.links]]
+      name = "About Me"
+      url = "projects/project5"
+
+    [[params.navigation.links]]
       name = "Stocks"
       url = "projects/project1"
+      
 
     [[params.navigation.links]]
       name = "US Treasury Bills"
       url = "projects/project2"
-      
 
-    #[[params.navigation.links]]
-     # name = "Generic Blog"
-      #url = "blogs/ipsum"
-
-    #[[params.navigation.links]]
-     # name = "Elements"
-      # url = "elements.html"
+    [[params.navigation.links]]
+      name = "Weather"
+       url = "projects/project3"
+    
+    [[params.navigation.links]]
+      name = "COVID-19 Pandemic"
+       url = "projects/project4"
 
     # Add custom links here by uncommenting code below. To remove links just delete
     # the [[params.navigation.links]] map associated with that link. Copy and paste
