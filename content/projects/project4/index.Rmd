@@ -1,5 +1,5 @@
 ---
-title: "Session 4: Homework 2"
+title: "Project 4: CDC COVID-19"
 author: "Study Group 27: Azmi Dzulkarnain, Beatriz Vala, Nona Velez, Andrea Gerards, Guillaume Borigite, Kris Wu"
 date: "`r Sys.Date()`"
 output:
@@ -45,7 +45,7 @@ library(vroom)
 
 
 
-# Challenge 1: CDC COVID-19 Public Use Data
+
 
 Let us revisit the [CDC Covid-19 Case Surveillance Data](https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data/vbim-akqf). 
 
@@ -63,7 +63,7 @@ covid_data <- vroom::vroom(url)%>% # If vroom::vroom(url) doesn't work, use read
 
 ```
 
-Given the data we have, I would like you to produce two graphs that show death % rate:
+Given the data we have, I will produce two graphs that show death % rate:
 
 1. by age group, sex, and whether the patient had co-morbidities or not
 1. by age group, sex, and whether the patient was admited to Intensive Care Unit (ICU) or not.
@@ -110,7 +110,7 @@ ggplot(plot_comorbidities, aes(x = age_group, y = death_rate)) +               #
        title = "Covid death % by age group, sex and presence of co-morbidities") +
   scale_y_continuous(breaks = seq(0, 60, 20),
                      labels = paste(seq(0, 60, 20), "%")) +
-  theme_bw()
+  theme_economist()
 
 #################################################################
 
@@ -153,7 +153,7 @@ ggplot(plot_icu, aes(x = age_group, y = death_rate)) +
        title = "Covid death % by age group, sex and whether patient was admited to ICU") +
   scale_y_continuous(breaks = seq(0, 60, 20),
                      labels = paste(seq(0, 60, 20), "%")) +
-  theme_bw()
+  theme_economist()
 
 
 
@@ -164,6 +164,4 @@ knitr::include_graphics(here::here("images", "covid_death_rate_comorbidities.png
 knitr::include_graphics(here::here("images", "covid_death_rate_icu.png"), error = FALSE)
 ```
 
-
-Besides the graphs, make sure your code is easy to read and understand-- imagine if you revisit this six months from now. you should be able to follow what you were doing!
 

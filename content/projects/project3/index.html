@@ -1,7 +1,7 @@
 ---
-title: "Session 4: Homework 2"
-author: "Study Group 27: Azmi Dzulkarnain, Beatriz Vala, Nona Velez, Andrea Gerards, Guillaume Borigite, Kris Wu"
-date: "2020-10-12"
+title: "Project 3: Climate Change and Temperature Anomalies"
+author: 
+date: "2020-10-18"
 output:
   html_document:
     theme: flatly
@@ -28,9 +28,6 @@ output:
 <div id="plotting-information" class="section level2">
 <h2>Plotting Information</h2>
 <p>Let us plot the data using a time-series scatter plot, and add a trendline. To do that, we first need to create a new variable called <code>date</code> in order to ensure that the <code>delta</code> values are plot chronologically.</p>
-<blockquote>
-<p>In the following chunk of code, I used the argument, which does not run a chunk of code; I did so that you can knit the document before tidying the data and creating a new dataframe <code>tidyweather</code>. When you actually want to run this code and knit your document, you must delete <code></code>, <strong>not just here but in all chunks were <code></code> appears.</strong></p>
-</blockquote>
 <pre class="r"><code>tidyweather &lt;- tidyweather %&gt;%
   mutate(date = ymd(paste(as.character(Year), Month, &quot;1&quot;)),
          month = month(date, label=TRUE),
@@ -136,9 +133,6 @@ CI</code></pre>
 ##      &lt;dbl&gt;    &lt;dbl&gt;
 ## 1    0.917     1.02</code></pre>
 <pre class="r"><code># use the infer package to construct a 95% CI for delta</code></pre>
-<blockquote>
-<p>What is the data showing us? Please type your answer after (and outside!) this blockquote. You have to explain what you have done, and the interpretation of the result. One paragraph max, please!</p>
-</blockquote>
 <p><em>First, we set the seed so R samples the same sample each time, so that our results will be the same when we (or someone else) reproduces them. Then, we filtered the data for the timeframe we wanted (2011-present), and cleared out any rows with empty delta values. We generated 1000 resamples of delta values with 103 observations in each, all in this specified time period with the sampling method boostrapping: sampling with replacement, meaning that if our sample space were a hat, whatever you take out of the hat, you have to put back into it before taking another sample out. Then we calculated the mean for 1000 samples, and from these sample means, we calculated the 95% confidence interval (displayed above) which means that there is a 95% chance that this confidence interval contains the true population mean.</em></p>
 </div>
 </div>

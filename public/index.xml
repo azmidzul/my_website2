@@ -6,30 +6,22 @@
     <description>Recent content on Azmi&#39;s Portfolio Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Project 1: Lets play around with some Stocks!</title>
-      <link>/projects/project1/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      <title>Project 2: US Yield Curve Inversion</title>
+      <link>/projects/project2/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/projects/project1/</guid>
-      <description>Lets take a look at the NYSE #Downloading the data we need nyse &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;nyse.csv&amp;quot;)) Lets see how the NYSE is made up #Grouping the companies in the NYSE by sector companies_per_sector &amp;lt;- nyse %&amp;gt;% group_by(sector) %&amp;gt;% summarise(count=count(sector)) %&amp;gt;% arrange(desc(count)) #Lets see what it looks like in a bar graph bar &amp;lt;- companies_per_sector %&amp;gt;% ggplot(aes(y=reorder(sector,count),x=count))+ geom_col()+ labs(y=&amp;quot;&amp;quot;,x=&amp;quot;# of Companies&amp;quot;,title=&amp;quot;Companies in the NYSE&amp;quot;)+ theme_economist_white() bar   Now lets look at the Dow Jones Industrial Aveareg (DJIA) djia_url &amp;lt;- &amp;quot;https://en.</description>
+      <guid>/projects/project2/</guid>
+      <description>Project 2: Yield Curve inversion
+Every so often, we hear warnings from commentators on the “inverted yield curve” and its predictive power with respect to recessions. An explainer what a inverted yield curve is can be found here. If you’d rather listen to something, here is a great podcast from NPR on yield curve indicators
+In addition, many articles and commentators think that, e.g., Yield curve inversion is viewed as a harbinger of recession.</description>
     </item>
     
     <item>
-      <title>Session 4: Homework 2</title>
-      <link>/projects/project4/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project4/</guid>
-      <description>Challenge 1: CDC COVID-19 Public Use Data Let us revisit the CDC Covid-19 Case Surveillance Data.
-# file contains 11 variables and 3.66m rows and is well over 380Mb. # It will take time to download # URL link to CDC to download data url &amp;lt;- &amp;quot;https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD&amp;quot; covid_data &amp;lt;- vroom::vroom(url)%&amp;gt;% # If vroom::vroom(url) doesn&amp;#39;t work, use read_csv(url) clean_names() Given the data we have, I would like you to produce two graphs that show death % rate:</description>
-    </item>
-    
-    <item>
-      <title>Session 4: Homework 2</title>
+      <title>Project 3: Climate Change and Temperature Anomalies</title>
       <link>/projects/project3/</link>
-      <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/project3/</guid>
       <description>Climate change and temperature anomalies If we wanted to study climate change, we can find data on the Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies in the Northern Hemisphere at NASA’s Goddard Institute for Space Studies. The tabular data of temperature anomalies can be found here
@@ -37,13 +29,23 @@ To define temperature anomalies you need to have a reference, or base, period wh
     </item>
     
     <item>
-      <title>US Yield Curve Inversion</title>
-      <link>/projects/project2/</link>
-      <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
+      <title>Project 4: CDC COVID-19</title>
+      <link>/projects/project4/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/projects/project2/</guid>
-      <description>Challenge 1: Yield Curve inversion Every so often, we hear warnings from commentators on the “inverted yield curve” and its predictive power with respect to recessions. An explainer what a inverted yield curve is can be found here. If you’d rather listen to something, here is a great podcast from NPR on yield curve indicators
-In addition, many articles and commentators think that, e.g., Yield curve inversion is viewed as a harbinger of recession.</description>
+      <guid>/projects/project4/</guid>
+      <description>Let us revisit the CDC Covid-19 Case Surveillance Data.
+# file contains 11 variables and 3.66m rows and is well over 380Mb. # It will take time to download # URL link to CDC to download data url &amp;lt;- &amp;quot;https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD&amp;quot; covid_data &amp;lt;- vroom::vroom(url)%&amp;gt;% # If vroom::vroom(url) doesn&amp;#39;t work, use read_csv(url) clean_names() Given the data we have, I will produce two graphs that show death % rate:
+by age group, sex, and whether the patient had co-morbidities or not by age group, sex, and whether the patient was admited to Intensive Care Unit (ICU) or not.</description>
+    </item>
+    
+    <item>
+      <title>Project 1: Lets play around with some Stocks!</title>
+      <link>/projects/project1/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project1/</guid>
+      <description>Lets take a look at the NYSE #Downloading the data we need nyse &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;nyse.csv&amp;quot;)) Lets see how the NYSE is made up #Grouping the companies in the NYSE by sector companies_per_sector &amp;lt;- nyse %&amp;gt;% group_by(sector) %&amp;gt;% summarise(count=count(sector)) %&amp;gt;% arrange(desc(count)) #Lets see what it looks like in a bar graph bar &amp;lt;- companies_per_sector %&amp;gt;% ggplot(aes(y=reorder(sector,count),x=count))+ geom_col()+ labs(y=&amp;quot;&amp;quot;,x=&amp;quot;# of Companies&amp;quot;,title=&amp;quot;Companies in the NYSE&amp;quot;)+ theme_economist_white() bar   Now lets look at the Dow Jones Industrial Aveareg (DJIA) djia_url &amp;lt;- &amp;quot;https://en.</description>
     </item>
     
     <item>
@@ -99,7 +101,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/project5/</guid>
-      <description>Before University I was born and raised in Singapore where I spent the first twenty years of my life. Being from Singapore, I had to undergo two years of national service, which is compulsory for all male citizens. For my national service, I was enlisted into the Singapore Police Force where I served as a front line police officer and attended to “999” emergency cases from the public. Although it was compulsory, I enjoyed my time as a policeman and was eventually promoted to a sergeant due to my exemplary work.</description>
+      <description>I was born and raised in Singapore where I spent the first twenty years of my life. Being from Singapore, I had to undergo two years of national service, which is compulsory for all male citizens. For my national service, I was enlisted into the Singapore Police Force where I served as a front line police officer and attended to “999” emergency cases from the public. Although it was compulsory, I enjoyed my time as a policeman and was eventually promoted to a sergeant due to my exemplary work.</description>
     </item>
     
   </channel>

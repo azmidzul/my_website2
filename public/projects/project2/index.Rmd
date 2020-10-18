@@ -1,7 +1,7 @@
 ---
-title: 'US Yield Curve Inversion'
+title: 'Project 2: US Yield Curve Inversion'
 author: '
-  Billiet, Christopher Baumann'
+ '
 date: "`r Sys.Date()`"
 output:
   pdf_document:
@@ -56,7 +56,7 @@ library(httr)
 ```
 
 
-# Challenge 1: Yield Curve inversion
+Project 2: Yield Curve inversion
 
 Every so often, we hear warnings from commentators on the "inverted yield curve" and its predictive power with respect to recessions. An explainer what a [inverted yield curve is can be found here](https://www.reuters.com/article/us-usa-economy-yieldcurve-explainer/explainer-what-is-an-inverted-yield-curve-idUSKBN1O50GA). If you'd rather listen to something, here is a great podcast from [NPR on yield curve indicators](https://www.podbean.com/media/share/dir-4zgj9-6aefd11)
 
@@ -131,10 +131,6 @@ The first thing would be to join this dataframe `df` with the dataframe `mylooku
 # joining two dataframes
 yield_curve <-left_join(df,mylookup,by="symbol") 
 ```
-
-## Plotting the yield curve
-
-This may seem long but it should be easy to produce the following three plots
 
 ### Yields on US rates by duration since 1960
 
