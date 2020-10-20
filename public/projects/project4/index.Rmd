@@ -1,6 +1,6 @@
 ---
 title: "Project 4: CDC COVID-19"
-author: "Study Group 27: Azmi Dzulkarnain, Beatriz Vala, Nona Velez, Andrea Gerards, Guillaume Borigite, Kris Wu"
+author: "Azmi"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -112,7 +112,9 @@ ggplot(plot_comorbidities, aes(x = age_group, y = death_rate)) +               #
                      labels = paste(seq(0, 60, 20), "%")) +
   theme_economist()
 
-#################################################################
+```
+
+```{r}
 
 # Filter and summarize count, for grouped data, with death criteria
 grouped_icu_death <- covid_data %>%
@@ -158,10 +160,6 @@ ggplot(plot_icu, aes(x = age_group, y = death_rate)) +
 
 
   
-```
-```{r covid_challenge, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "covid_death_rate_comorbidities.png"), error = FALSE)
-knitr::include_graphics(here::here("images", "covid_death_rate_icu.png"), error = FALSE)
 ```
 
 

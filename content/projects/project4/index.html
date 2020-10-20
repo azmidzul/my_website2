@@ -1,7 +1,7 @@
 ---
 title: "Project 4: CDC COVID-19"
-author: "Study Group 27: Azmi Dzulkarnain, Beatriz Vala, Nona Velez, Andrea Gerards, Guillaume Borigite, Kris Wu"
-date: "2020-10-18"
+author: "Azmi"
+date: "2020-10-20"
 output:
   html_document:
     theme: flatly
@@ -71,9 +71,7 @@ ggplot(plot_comorbidities, aes(x = age_group, y = death_rate)) +               #
                      labels = paste(seq(0, 60, 20), &quot;%&quot;)) +
   theme_economist()</code></pre>
 <p><img src="/projects/project4/index_files/figure-html/unnamed-chunk-2-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>#################################################################
-
-# Filter and summarize count, for grouped data, with death criteria
+<pre class="r"><code># Filter and summarize count, for grouped data, with death criteria
 grouped_icu_death &lt;- covid_data %&gt;%
   filter(icu_yn %in% c(&quot;Yes&quot;, &quot;No&quot;),
          death_yn %in% c(&quot;Yes&quot;, &quot;No&quot;),
@@ -113,5 +111,4 @@ ggplot(plot_icu, aes(x = age_group, y = death_rate)) +
   scale_y_continuous(breaks = seq(0, 60, 20),
                      labels = paste(seq(0, 60, 20), &quot;%&quot;)) +
   theme_economist()</code></pre>
-<p><img src="/projects/project4/index_files/figure-html/unnamed-chunk-2-2.png" width="1152" style="display: block; margin: auto;" />
-<img src="/Users/azmi/Documents/London Business School/Data Analytics/my_website2/images/covid_death_rate_comorbidities.png" width="100%" style="display: block; margin: auto;" /><img src="/Users/azmi/Documents/London Business School/Data Analytics/my_website2/images/covid_death_rate_icu.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="/projects/project4/index_files/figure-html/unnamed-chunk-3-1.png" width="648" style="display: block; margin: auto;" /></p>

@@ -6,7 +6,18 @@
     <description>Recent content on Azmi&#39;s Portfolio Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project 4: CDC COVID-19</title>
+      <link>/projects/project4/</link>
+      <pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project4/</guid>
+      <description>Let us revisit the CDC Covid-19 Case Surveillance Data.
+# file contains 11 variables and 3.66m rows and is well over 380Mb. # It will take time to download # URL link to CDC to download data url &amp;lt;- &amp;quot;https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD&amp;quot; covid_data &amp;lt;- vroom::vroom(url)%&amp;gt;% # If vroom::vroom(url) doesn&amp;#39;t work, use read_csv(url) clean_names() Given the data we have, I will produce two graphs that show death % rate:
+by age group, sex, and whether the patient had co-morbidities or not by age group, sex, and whether the patient was admited to Intensive Care Unit (ICU) or not.</description>
+    </item>
+    
     <item>
       <title>Project 2: US Yield Curve Inversion</title>
       <link>/projects/project2/</link>
@@ -26,17 +37,6 @@ In addition, many articles and commentators think that, e.g., Yield curve invers
       <guid>/projects/project3/</guid>
       <description>Climate change and temperature anomalies If we wanted to study climate change, we can find data on the Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies in the Northern Hemisphere at NASA’s Goddard Institute for Space Studies. The tabular data of temperature anomalies can be found here
 To define temperature anomalies you need to have a reference, or base, period which NASA clearly states that it is the period between 1951-1980.</description>
-    </item>
-    
-    <item>
-      <title>Project 4: CDC COVID-19</title>
-      <link>/projects/project4/</link>
-      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project4/</guid>
-      <description>Let us revisit the CDC Covid-19 Case Surveillance Data.
-# file contains 11 variables and 3.66m rows and is well over 380Mb. # It will take time to download # URL link to CDC to download data url &amp;lt;- &amp;quot;https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD&amp;quot; covid_data &amp;lt;- vroom::vroom(url)%&amp;gt;% # If vroom::vroom(url) doesn&amp;#39;t work, use read_csv(url) clean_names() Given the data we have, I will produce two graphs that show death % rate:
-by age group, sex, and whether the patient had co-morbidities or not by age group, sex, and whether the patient was admited to Intensive Care Unit (ICU) or not.</description>
     </item>
     
     <item>

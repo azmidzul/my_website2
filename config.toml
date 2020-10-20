@@ -124,7 +124,7 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "COVID-19 Pandemic"
       subtitle = "Remember 2020?"
-      image = "pic04.jpg"
+      image = "masks.jpg"
       url = "projects/project4"
 
   
